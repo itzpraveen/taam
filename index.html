@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Taam Food Products LLP makes fresh dairy, traditional batters, chapati, lassi and sambharam from Malappuram, Kerala."
+    >
+    <title>Taam Food Products LLP | Fresh Kerala Staples</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preload" as="image" href="assets/kittimoru.jpeg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Taam Food Products home">
+        <img src="assets/taam-logo-512.png" alt="Taam" width="140" height="79">
+        <span>Food Products LLP</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#products">Products</a>
+        <a href="#quality">Quality</a>
+        <a href="#retail">Retailers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <p class="eyebrow">Made in Malappuram, Kerala</p>
+          <h1 id="hero-title">Taam Food Products</h1>
+          <p class="hero__lead">
+            Fresh dairy, traditional batters, chapati, lassi and sambharam for
+            everyday homes, retailers and food-service counters.
+          </p>
+          <div class="hero__actions" aria-label="Primary actions">
+            <a class="button button--primary" href="tel:+916238544807">Call sales</a>
+            <a class="button button--secondary" href="#products">View range</a>
+          </div>
+          <dl class="hero__facts" aria-label="Brand highlights">
+            <div>
+              <dt>8+</dt>
+              <dd>Everyday staples</dd>
+            </div>
+            <div>
+              <dt>LLP</dt>
+              <dd>Food products company</dd>
+            </div>
+            <div>
+              <dt>Kerala</dt>
+              <dd>Local taste profile</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="range-strip" aria-label="Product highlights">
+        <a href="#products" class="range-strip__item">
+          <img src="assets/idly-dosa-batter.jpeg" alt="Taam idly and dosa batter pack">
+          <span>Idly & Dosa Batter</span>
+        </a>
+        <a href="#products" class="range-strip__item">
+          <img src="assets/thick-curd.jpeg" alt="Taam thick curd jar">
+          <span>Thick Curd</span>
+        </a>
+        <a href="#products" class="range-strip__item">
+          <img src="assets/ghee.jpeg" alt="Taam pure cow ghee jar">
+          <span>Pure Cow Ghee</span>
+        </a>
+        <a href="#products" class="range-strip__item">
+          <img src="assets/lassi-mango.jpeg" alt="Taam mango lassi pouch">
+          <span>Mango Lassi</span>
+        </a>
+      </section>
+
+      <section class="section product-section" id="products" aria-labelledby="products-title">
+        <div class="section-header">
+          <p class="eyebrow">Product architecture</p>
+          <h2 id="products-title">A practical range for daily kitchens</h2>
+          <p>
+            Organised around repeat-purchase categories: dairy essentials,
+            ready-to-cook staples and refreshing drinks.
+          </p>
+        </div>
+
+        <div class="filter-bar" role="tablist" aria-label="Filter products">
+          <button class="filter-button is-active" type="button" role="tab" aria-selected="true" data-filter="all">
+            All
+          </button>
+          <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="dairy">
+            Dairy
+          </button>
+          <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="ready">
+            Ready-to-cook
+          </button>
+          <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="drinks">
+            Drinks
+          </button>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card" data-category="ready">
+            <img src="assets/idly-dosa-batter.jpeg" alt="Taam idly and dosa batter">
+            <div class="product-card__body">
+              <span class="tag tag--green">Ready-to-cook</span>
+              <h3>Idly & Dosa Batter</h3>
+              <p>Traditional South Indian batter positioned for soft idly, crisp dosa and reliable breakfast service.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="dairy">
+            <img src="assets/thick-curd.jpeg" alt="Taam thick curd">
+            <div class="product-card__body">
+              <span class="tag tag--blue">Dairy</span>
+              <h3>Thick Curd</h3>
+              <p>Everyday curd for meals, sides and kitchen prep, packed with a clean shelf presence.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="dairy">
+            <img src="assets/ghee.jpeg" alt="Taam pure cow ghee">
+            <div class="product-card__body">
+              <span class="tag tag--gold">Dairy</span>
+              <h3>Pure Cow Ghee</h3>
+              <p>A bright, premium pantry product for cooking, topping and festive use.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="drinks">
+            <img src="assets/kittimoru.jpeg" alt="Taam kittimoru bottle">
+            <div class="product-card__body">
+              <span class="tag tag--blue">Drink</span>
+              <h3>Kittimoru</h3>
+              <p>Cooling buttermilk for local retail shelves, meal counters and daily refreshment occasions.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="dairy">
+            <img src="assets/skimmed-milk-curd.jpeg" alt="Taam skimmed milk curd pouch">
+            <div class="product-card__body">
+              <span class="tag tag--green">Dairy</span>
+              <h3>Skimmed Milk Curd</h3>
+              <p>A value-friendly curd pack designed for frequent household and food-service use.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="ready">
+            <img src="assets/half-cooked-chapati.jpeg" alt="Taam half cooked chapati">
+            <div class="product-card__body">
+              <span class="tag tag--red">Ready-to-cook</span>
+              <h3>Half Cooked Chapati</h3>
+              <p>Convenient wheat chapati for fast finishing in homes, canteens and small food businesses.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="drinks">
+            <img src="assets/lassi-mango.jpeg" alt="Taam mango lassi pouch">
+            <div class="product-card__body">
+              <span class="tag tag--gold">Drink</span>
+              <h3>Mango Lassi</h3>
+              <p>A bright mango refreshment with strong visual impact for chilled counters.</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="drinks">
+            <img src="assets/sambharam.jpeg" alt="Taam sambharam pouch">
+            <div class="product-card__body">
+              <span class="tag tag--green">Drink</span>
+              <h3>Sambharam</h3>
+              <p>Traditional spiced buttermilk for hot days, lunch pairings and quick refreshment.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section quality-section" id="quality" aria-labelledby="quality-title">
+        <div class="quality-copy">
+          <p class="eyebrow">Quality position</p>
+          <h2 id="quality-title">Freshness-led products with familiar Kerala taste</h2>
+          <p>
+            Taam is built for products people buy again and again: curd for meals,
+            batter for breakfast, ghee for cooking, chapati for speed and chilled
+            drinks for refreshment.
+          </p>
+        </div>
+        <div class="quality-points" aria-label="Quality focus areas">
+          <article>
+            <span>01</span>
+            <h3>Clear shelf identity</h3>
+            <p>Consistent red Taam branding helps the range stay recognisable across pouches, bottles and jars.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Everyday categories</h3>
+            <p>The product mix supports morning, lunch, cooking and refreshment use cases.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Retail-ready communication</h3>
+            <p>Product names, flavour cues and serving contexts are easy for shoppers to scan quickly.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="retail-band" id="retail" aria-labelledby="retail-title">
+        <div class="retail-band__content">
+          <p class="eyebrow">Retail and food-service</p>
+          <h2 id="retail-title">Stock Taam for local daily demand</h2>
+          <p>
+            The range is suited for supermarkets, grocery stores, bakeries, hotels,
+            cafeterias, catering kitchens and chilled food counters.
+          </p>
+        </div>
+        <div class="channel-grid" aria-label="Customer channels">
+          <div>
+            <span>Stores</span>
+            <p>Chilled staples and quick-moving packaged foods for neighbourhood retail.</p>
+          </div>
+          <div>
+            <span>Food service</span>
+            <p>Breakfast, meal prep and drink products for recurring kitchen workflows.</p>
+          </div>
+          <div>
+            <span>Distribution</span>
+            <p>Range-led enquiries for availability, supply and local dealership conversations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Talk to Taam Food Products LLP</h2>
+          <p>
+            Share your requirement for retail supply, food-service use, dealership
+            enquiries or product availability.
+          </p>
+          <address>
+            <strong>Taam Food Products LLP</strong><br>
+            Team Sithara Business Park<br>
+            Muttippalam, Ponmala PO<br>
+            Malappuram, Kerala 676528
+          </address>
+          <div class="contact-links">
+            <a href="tel:+916238544807">+91 62385 44807</a>
+            <a href="mailto:taamfoodproducts@gmail.com">taamfoodproducts@gmail.com</a>
+            <a href="https://wa.me/916238544807">WhatsApp enquiry</a>
+          </div>
+        </div>
+
+        <form class="enquiry-form" id="enquiry-form">
+          <label>
+            Name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" autocomplete="tel" required>
+          </label>
+          <label>
+            Enquiry type
+            <select name="type" required>
+              <option value="">Select one</option>
+              <option>Retail supply</option>
+              <option>Food-service order</option>
+              <option>Distribution or dealership</option>
+              <option>Product availability</option>
+            </select>
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Tell us the products, quantity or location you need."></textarea>
+          </label>
+          <button class="button button--primary" type="submit">Send enquiry</button>
+          <p class="form-note" role="status" aria-live="polite" data-form-note>
+            The enquiry opens in your email app with the details filled in.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/taam-logo-512.png" alt="Taam" width="120" height="68">
+      <p>Fresh daily staples from Malappuram, Kerala.</p>
+      <p>&copy; <span data-year></span> Taam Food Products LLP. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
