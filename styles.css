@@ -160,14 +160,14 @@ textarea {
   position: relative;
   display: grid;
   align-items: center;
-  min-height: 60svh;
-  padding: 64px 32px 56px;
+  min-height: 56svh;
+  padding: 52px 32px 34px;
   color: var(--white);
   overflow: hidden;
   isolation: isolate;
   background:
-    linear-gradient(90deg, rgba(25, 19, 15, 0.86), rgba(25, 19, 15, 0.54) 42%, rgba(25, 19, 15, 0.18)),
-    url("assets/kittimoru.jpeg") 62% center / cover;
+    linear-gradient(90deg, rgba(27, 20, 17, 0.9), rgba(27, 20, 17, 0.58) 44%, rgba(27, 20, 17, 0.2)),
+    url("assets/kittimoru.jpeg") 66% center / cover;
 }
 
 .hero::after {
@@ -180,20 +180,16 @@ textarea {
   background: linear-gradient(0deg, rgba(25, 19, 15, 0.46), transparent);
 }
 
-.hero__canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  opacity: 0.72;
-  pointer-events: none;
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 100%);
+  margin: 0 auto;
 }
 
 .hero__content {
   position: relative;
-  z-index: 2;
-  width: min(690px, 100%);
+  width: min(720px, 100%);
 }
 
 .eyebrow {
@@ -213,7 +209,8 @@ textarea {
 .hero h1 {
   margin: 0;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  font-size: 4.75rem;
+  max-width: 760px;
+  font-size: 4.2rem;
   line-height: 0.95;
   letter-spacing: 0;
 }
@@ -312,7 +309,7 @@ textarea {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   max-width: 620px;
-  margin: 28px 0 0;
+  margin: 22px 0 0;
 }
 
 .hero__facts div {
@@ -329,6 +326,13 @@ textarea {
   margin: 2px 0 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.92rem;
+}
+
+.hero__location {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  font-weight: 800;
 }
 
 .range-strip {
@@ -367,6 +371,22 @@ textarea {
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid var(--line);
+}
+
+.range-strip__item strong,
+.range-strip__item em {
+  display: block;
+  font-style: normal;
+}
+
+.range-strip__item strong {
+  margin-bottom: 3px;
+}
+
+.range-strip__item em {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
 }
 
 .section {
@@ -531,6 +551,67 @@ textarea {
   color: #57443a;
   font-size: 0.78rem;
   font-weight: 850;
+}
+
+.product-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 14px;
+  border: 1px solid rgba(159, 32, 40, 0.18);
+  border-radius: 8px;
+  color: var(--red-dark);
+  font-size: 0.88rem;
+  font-weight: 950;
+}
+
+.product-card__action:hover,
+.product-card__action:focus-visible {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.shelf-plan {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0), rgba(248, 241, 230, 0.88)),
+    var(--paper);
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.plan-grid article {
+  min-height: 260px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 26px;
+  background: var(--white);
+  box-shadow: 0 16px 34px rgba(63, 43, 30, 0.08);
+}
+
+.plan-grid span {
+  color: var(--red);
+  font-size: 0.82rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.plan-grid h3 {
+  margin: 68px 0 10px;
+  font-size: 1.5rem;
+  line-height: 1.08;
+}
+
+.plan-grid p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .quality-section {
@@ -841,13 +922,9 @@ textarea {
       url("assets/kittimoru.jpeg") 54% center / cover;
   }
 
-  .hero__canvas {
-    opacity: 0.46;
-  }
-
   .hero h1 {
     max-width: 360px;
-    font-size: 3.2rem;
+    font-size: 3.05rem;
   }
 
   .hero__lead {
@@ -913,6 +990,7 @@ textarea {
 
   .product-grid,
   .quality-points,
+  .plan-grid,
   .channel-grid {
     grid-template-columns: 1fr;
   }
@@ -923,8 +1001,13 @@ textarea {
   }
 
   .quality-points article,
+  .plan-grid article,
   .channel-grid div {
     min-height: 0;
+  }
+
+  .plan-grid h3 {
+    margin-top: 28px;
   }
 
   .channel-grid span {

@@ -17,5 +17,3 @@ Then visit `http://localhost:4173`.
 GitHub Pages serves the site from the `main` branch root:
 
 https://itzpraveen.github.io/taam/
-
-The hero animation uses a pinned Three.js module from jsDelivr.
