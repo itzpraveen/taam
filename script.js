@@ -5,10 +5,20 @@ const productCards = document.querySelectorAll(".product-card");
 const enquiryForm = document.querySelector("#enquiry-form");
 const formNote = document.querySelector("[data-form-note]");
 const yearTarget = document.querySelector("[data-year]");
+const siteHeader = document.querySelector("[data-header]");
 
 if (yearTarget) {
   yearTarget.textContent = new Date().getFullYear();
 }
+
+const updateHeaderState = () => {
+  if (siteHeader) {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+  }
+};
+
+updateHeaderState();
+window.addEventListener("scroll", updateHeaderState, { passive: true });
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
@@ -18,6 +28,13 @@ if (navToggle && siteNav) {
 
   siteNav.addEventListener("click", (event) => {
     if (event.target instanceof HTMLAnchorElement) {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) {
       siteNav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
     }
