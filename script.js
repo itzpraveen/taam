@@ -46,7 +46,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealTargets = document.querySelectorAll(
-    ".section-header, .product-card, .range-strip__item, .story-copy, .story-points li, .plan-grid article, .quality-points article, .channel-grid > div, .retail-band__content, .contact-copy, .enquiry-form",
+    ".section-header, .standard-copy, .standard-point, .product-card, .taste-card, .story-copy, .story-showcase, .story-points li, .plan-grid article, .quality-points article, .channel-grid > div, .retail-band__content, .contact-copy, .enquiry-form",
   );
 
   const observer = new IntersectionObserver(
