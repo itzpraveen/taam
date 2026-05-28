@@ -215,6 +215,14 @@ textarea {
   letter-spacing: 0;
 }
 
+.hero__mal {
+  margin: 10px 0 0;
+  color: #ffe2a1;
+  font-family: "Noto Sans Malayalam", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
 .hero__lead {
   max-width: 610px;
   margin: 18px 0 0;
@@ -530,6 +538,15 @@ textarea {
   line-height: 1.12;
 }
 
+.mal {
+  display: block;
+  margin-top: 4px;
+  color: var(--red);
+  font-family: "Noto Sans Malayalam", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
 .product-card p {
   margin: 0;
   color: var(--muted);
@@ -571,6 +588,54 @@ textarea {
   background: var(--red);
   color: var(--white);
   border-color: var(--red);
+}
+
+.story-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+  gap: 48px;
+  align-items: center;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  background: var(--paper);
+}
+
+.story-copy {
+  max-width: 560px;
+}
+
+.story-copy p + p {
+  margin-top: 14px;
+}
+
+.story-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.story-points li {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 14px 30px rgba(63, 43, 30, 0.07);
+}
+
+.story-points strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--red-dark);
+  font-size: 1.06rem;
+}
+
+.story-points span {
+  color: var(--muted);
+  font-size: 0.94rem;
 }
 
 .shelf-plan {
@@ -808,6 +873,27 @@ textarea {
   border-color: var(--blue);
 }
 
+.enquiry-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.enquiry-form__actions .button {
+  flex: 1 1 auto;
+}
+
+.button--outline-dark {
+  border-color: rgba(159, 32, 40, 0.3);
+  background: transparent;
+  color: var(--red-dark);
+}
+
+.button--outline-dark:hover,
+.button--outline-dark:focus-visible {
+  background: rgba(159, 32, 40, 0.06);
+}
+
 .form-note {
   margin: -4px 0 0;
   color: var(--muted);
@@ -820,9 +906,19 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 26px 32px;
+  padding: 28px 32px;
   color: rgba(255, 255, 255, 0.76);
   background: #201714;
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-footer__meta {
+  text-align: right;
 }
 
 .site-footer img {
@@ -834,6 +930,35 @@ textarea {
 .site-footer p {
   margin: 0;
   font-size: 0.92rem;
+}
+
+.site-footer .fssai {
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+}
+
+.whatsapp-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 1060px) {
@@ -851,8 +976,14 @@ textarea {
 
   .quality-section,
   .retail-band,
-  .contact-section {
+  .contact-section,
+  .story-section {
     grid-template-columns: 1fr;
+  }
+
+  .story-copy {
+    width: min(760px, 100%);
+    margin: 0 auto;
   }
 
   .quality-copy,
@@ -991,8 +1122,24 @@ textarea {
   .product-grid,
   .quality-points,
   .plan-grid,
-  .channel-grid {
+  .channel-grid,
+  .story-points {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .site-footer__meta {
+    text-align: left;
+  }
+
+  .whatsapp-fab {
+    width: 52px;
+    height: 52px;
   }
 
   .quality-section,

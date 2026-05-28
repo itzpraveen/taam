@@ -48,7 +48,7 @@ filterButtons.forEach((button) => {
     filterButtons.forEach((item) => {
       const isActive = item === button;
       item.classList.toggle("is-active", isActive);
-      item.setAttribute("aria-selected", String(isActive));
+      item.setAttribute("aria-pressed", String(isActive));
     });
 
     productCards.forEach((card) => {
@@ -59,30 +59,60 @@ filterButtons.forEach((button) => {
 });
 
 if (enquiryForm) {
+  const emailButton = enquiryForm.querySelector("[data-send-email]");
+
+  const readEnquiry = () => {
+    const data = new FormData(enquiryForm);
+    return {
+      name: String(data.get("name") || "").trim(),
+      phone: String(data.get("phone") || "").trim(),
+      type: String(data.get("type") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+    };
+  };
+
+  const enquiryLines = ({ name, phone, type, message }) => [
+    `Name: ${name}`,
+    `Phone: ${phone}`,
+    `Enquiry type: ${type}`,
+    "",
+    "Message:",
+    message || "Please contact me with more details.",
+  ];
+
+  // Primary action: open WhatsApp with the enquiry pre-filled.
   enquiryForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const data = new FormData(enquiryForm);
-    const name = String(data.get("name") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
-    const type = String(data.get("type") || "").trim();
-    const message = String(data.get("message") || "").trim();
-
-    const subject = encodeURIComponent(`Website enquiry - ${type || "Taam Food Products"}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Phone: ${phone}`,
-        `Enquiry type: ${type}`,
-        "",
-        "Message:",
-        message || "Please contact me with more details.",
-      ].join("\n"),
+    if (!enquiryForm.reportValidity()) {
+      return;
+    }
+    const enquiry = readEnquiry();
+    const text = encodeURIComponent(
+      ["Website enquiry - Taam Food Products", "", ...enquiryLines(enquiry)].join("\n"),
     );
 
     if (formNote) {
-      formNote.textContent = "Opening your email app with the enquiry details.";
+      formNote.textContent = "Opening WhatsApp with your enquiry details.";
     }
 
-    window.location.href = `mailto:taamfoodproducts@gmail.com?subject=${subject}&body=${body}`;
+    window.open(`https://wa.me/916238544807?text=${text}`, "_blank", "noopener");
   });
+
+  // Fallback action: open the user's email app instead.
+  if (emailButton) {
+    emailButton.addEventListener("click", () => {
+      if (!enquiryForm.reportValidity()) {
+        return;
+      }
+      const enquiry = readEnquiry();
+      const subject = encodeURIComponent(`Website enquiry - ${enquiry.type || "Taam Food Products"}`);
+      const body = encodeURIComponent(enquiryLines(enquiry).join("\n"));
+
+      if (formNote) {
+        formNote.textContent = "Opening your email app with the enquiry details.";
+      }
+
+      window.location.href = `mailto:taamfoodproducts@gmail.com?subject=${subject}&body=${body}`;
+    });
+  }
 }
