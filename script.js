@@ -41,6 +41,38 @@ if (navToggle && siteNav) {
   });
 }
 
+// Tasteful scroll-reveal — only when the user hasn't asked to reduce motion.
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  const revealTargets = document.querySelectorAll(
+    ".section-header, .product-card, .range-strip__item, .story-copy, .story-points li, .plan-grid article, .quality-points article, .channel-grid > div, .retail-band__content, .contact-copy, .enquiry-form",
+  );
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+  );
+
+  revealTargets.forEach((el) => {
+    el.classList.add("reveal");
+    // Stagger items that share a parent for a gentle cascade.
+    const siblings = Array.from(el.parentElement ? el.parentElement.children : []);
+    const index = siblings.indexOf(el);
+    if (index > 0) {
+      el.style.setProperty("--reveal-delay", `${Math.min(index * 70, 280)}ms`);
+    }
+    observer.observe(el);
+  });
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selected = button.dataset.filter || "all";
