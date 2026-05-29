@@ -76,6 +76,23 @@ textarea {
   border: 0;
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 3px;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+}
+
 .skip-link {
   position: absolute;
   left: 12px;
@@ -513,6 +530,10 @@ textarea {
   border-bottom: 1px solid rgba(255, 226, 161, 0.18);
 }
 
+.flavour-marquee--outro {
+  border-bottom: 0;
+}
+
 .flavour-marquee__track {
   display: flex;
   width: max-content;
@@ -552,7 +573,7 @@ textarea {
 .taste-card {
   position: relative;
   display: grid;
-  min-height: 285px;
+  min-height: 360px;
   overflow: hidden;
   color: var(--white);
   isolation: isolate;

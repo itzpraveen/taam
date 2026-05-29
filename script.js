@@ -7,6 +7,7 @@ const enquiryForm = document.querySelector("#enquiry-form");
 const formNote = document.querySelector("[data-form-note]");
 const yearTarget = document.querySelector("[data-year]");
 const siteHeader = document.querySelector("[data-header]");
+const progressBar = document.querySelector("[data-progress]");
 
 if (yearTarget) {
   yearTarget.textContent = new Date().getFullYear();
@@ -15,6 +16,11 @@ if (yearTarget) {
 const updateHeaderState = () => {
   if (siteHeader) {
     siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+  }
+  if (progressBar) {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    progressBar.style.width = max > 0 ? `${(doc.scrollTop / max) * 100}%` : "0%";
   }
 };
 
