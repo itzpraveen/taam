@@ -76,6 +76,24 @@ textarea {
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -64px;
+  z-index: 60;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: top 160ms var(--ease);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -187,17 +205,16 @@ textarea {
   position: relative;
   display: grid;
   align-items: center;
-  min-height: 82svh;
-  padding: 112px 32px 48px;
-  background-color: #1c120d;
-  color: var(--white);
+  min-height: 78svh;
+  padding: 120px 32px 64px;
+  background-color: #fffdf8;
+  color: var(--ink);
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(58% 78% at 7% 17%, rgba(161, 36, 44, 0.44), transparent 62%),
-    radial-gradient(48% 72% at 86% 28%, rgba(10, 126, 67, 0.32), transparent 66%),
-    linear-gradient(90deg, rgba(24, 14, 10, 0.96) 0%, rgba(24, 14, 10, 0.84) 40%, rgba(24, 14, 10, 0.48) 100%),
-    url("assets/hero-kerala-breakfast.jpg") 50% center / cover no-repeat;
+    radial-gradient(56% 76% at 6% 10%, rgba(161, 36, 44, 0.10), transparent 60%),
+    radial-gradient(50% 72% at 94% 22%, rgba(10, 126, 67, 0.10), transparent 64%),
+    linear-gradient(180deg, #fffdf8 0%, #fdf3e6 58%, #fffaf3 100%);
 }
 
 .hero::before {
@@ -206,7 +223,7 @@ textarea {
   right: -0.08em;
   top: 14%;
   z-index: 0;
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(161, 36, 44, 0.06);
   font-family: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", serif;
   font-size: clamp(8rem, 19vw, 17rem);
   font-weight: 700;
@@ -222,7 +239,7 @@ textarea {
   z-index: 1;
   height: 34%;
   pointer-events: none;
-  background: linear-gradient(0deg, rgba(25, 19, 15, 0.46), transparent);
+  background: none;
 }
 
 .hero__inner {
@@ -267,7 +284,6 @@ textarea {
   justify-content: center;
 }
 
-.hero .eyebrow,
 .retail-band .eyebrow {
   color: #bdf3c9;
 }
@@ -285,7 +301,7 @@ textarea {
 
 .hero__mal {
   margin: 10px 0 0;
-  color: #ffe2a1;
+  color: var(--red);
   font-family: "Noto Sans Malayalam", sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
@@ -294,9 +310,9 @@ textarea {
 .hero__lead {
   max-width: 520px;
   margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.88);
+  color: #4a3a30;
   font-size: 1.13rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .hero__badges {
@@ -310,11 +326,12 @@ textarea {
   display: inline-flex;
   align-items: center;
   min-height: 32px;
-  border: 1px solid rgba(255, 226, 161, 0.26);
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: 7px 12px;
-  color: #ffe2a1;
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--green-dark);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -390,7 +407,7 @@ textarea {
 .hero__location {
   grid-column: 1 / -1;
   margin: 22px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   font-size: 0.92rem;
   font-weight: 800;
 }
@@ -424,11 +441,11 @@ textarea {
   align-items: end;
   min-height: 150px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 28px 70px -30px rgba(0, 0, 0, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: var(--shadow);
   isolation: isolate;
   transform: translateZ(0);
   transition: transform 420ms var(--ease), border-color 420ms var(--ease), box-shadow 420ms var(--ease);
@@ -439,9 +456,7 @@ textarea {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(15, 8, 5, 0.03), rgba(15, 8, 5, 0.78)),
-    radial-gradient(100% 90% at 16% 12%, rgba(255, 226, 161, 0.22), transparent 58%);
+  background: linear-gradient(180deg, transparent 56%, rgba(34, 24, 19, 0.12));
 }
 
 .hero-pack--large {
@@ -480,8 +495,8 @@ textarea {
 
 .hero-pack:hover,
 .hero-pack:focus-visible {
-  border-color: rgba(255, 226, 161, 0.55);
-  box-shadow: 0 36px 90px -28px rgba(0, 0, 0, 0.9);
+  border-color: rgba(161, 36, 44, 0.3);
+  box-shadow: var(--shadow-strong);
   transform: translateY(-7px) scale(1.015);
 }
 
@@ -711,12 +726,12 @@ textarea {
 }
 
 .section {
-  padding: 104px 32px;
+  padding: 120px 32px;
 }
 
 .section-header {
-  width: min(790px, 100%);
-  margin: 0 auto 44px;
+  width: min(760px, 100%);
+  margin: 0 auto 56px;
   text-align: center;
 }
 
@@ -1127,19 +1142,18 @@ textarea {
 .story-points {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .story-points li {
-  padding: 20px;
+  padding: 22px;
   background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
 }
 
 .story-points strong {
@@ -1327,18 +1341,16 @@ textarea {
 .channel-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
+  gap: 12px;
   width: min(760px, 100%);
-  background: rgba(255, 255, 255, 0.24);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .channel-grid div {
   min-height: 210px;
-  padding: 22px;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
   backdrop-filter: blur(10px);
 }
 
@@ -1720,11 +1732,11 @@ textarea {
 
   .hero {
     min-height: auto;
-    padding: 72px 20px 34px;
+    padding: 92px 20px 44px;
     background:
-      radial-gradient(88% 70% at 8% 16%, rgba(161, 36, 44, 0.32), transparent 64%),
-      linear-gradient(90deg, rgba(24, 14, 10, 0.96) 0%, rgba(24, 14, 10, 0.86) 56%, rgba(24, 14, 10, 0.56) 100%),
-      url("assets/hero-kerala-breakfast.jpg") 64% center / cover no-repeat;
+      radial-gradient(92% 56% at 8% 10%, rgba(161, 36, 44, 0.10), transparent 62%),
+      radial-gradient(80% 50% at 96% 18%, rgba(10, 126, 67, 0.10), transparent 64%),
+      linear-gradient(180deg, #fffdf8 0%, #fdf3e6 100%);
   }
 
   .hero::before {
@@ -1819,7 +1831,7 @@ textarea {
   }
 
   .section {
-    padding: 66px 20px;
+    padding: 80px 20px;
   }
 
   .section-header h2,
