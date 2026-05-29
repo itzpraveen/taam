@@ -1,6 +1,7 @@
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector("#site-nav");
 const filterButtons = document.querySelectorAll(".filter-button");
+const rangeButtons = document.querySelectorAll("[data-range-filter]");
 const productCards = document.querySelectorAll(".product-card");
 const enquiryForm = document.querySelector("#enquiry-form");
 const formNote = document.querySelector("[data-form-note]");
@@ -46,7 +47,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealTargets = document.querySelectorAll(
-    ".section-header, .standard-copy, .standard-point, .product-card, .taste-card, .story-copy, .story-showcase, .story-points li, .plan-grid article, .quality-points article, .channel-grid > div, .retail-band__content, .contact-copy, .enquiry-form",
+    ".section-header, .range-spotlight, .standard-copy, .standard-point, .product-card, .taste-card, .story-copy, .story-showcase, .story-points li, .plan-grid article, .quality-points article, .channel-grid > div, .retail-band__content, .contact-copy, .enquiry-form",
   );
 
   const observer = new IntersectionObserver(
@@ -73,19 +74,31 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
   });
 }
 
+const applyProductFilter = (selected) => {
+  filterButtons.forEach((item) => {
+    const isActive = item.dataset.filter === selected;
+    item.classList.toggle("is-active", isActive);
+    item.setAttribute("aria-pressed", String(isActive));
+  });
+
+  productCards.forEach((card) => {
+    const shouldShow = selected === "all" || card.dataset.category === selected;
+    card.classList.toggle("is-hidden", !shouldShow);
+  });
+};
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const selected = button.dataset.filter || "all";
+    applyProductFilter(button.dataset.filter || "all");
+  });
+});
 
-    filterButtons.forEach((item) => {
-      const isActive = item === button;
-      item.classList.toggle("is-active", isActive);
-      item.setAttribute("aria-pressed", String(isActive));
-    });
-
-    productCards.forEach((card) => {
-      const shouldShow = selected === "all" || card.dataset.category === selected;
-      card.classList.toggle("is-hidden", !shouldShow);
+rangeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyProductFilter(button.dataset.rangeFilter || "all");
+    document.querySelector(".filter-bar")?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
     });
   });
 });
